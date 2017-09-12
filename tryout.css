@@ -1,0 +1,24 @@
+
+#flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: stretch;
+  align-items: flex-start;
+  /*background-color: yellow;*/
+  height: 100%
+}
+
+#main {
+	/*background-color: lightGreen;*/
+	flex: 0 0 50px;
+	align-self: center;
+	position: relative;
+	text-align: center;
+	font-size: 126px;
+}
+
+#pin {
+	
+}
