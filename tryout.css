@@ -5,15 +5,12 @@
 	justify-content: center;
 	align-content: stretch;
   align-items: flex-start;
-  /*background-color: yellow;*/
   height: 100%
 }
 
 .world {
-	/*background-color: lightGreen;*/
 	flex: 0 0 50px;
 	align-self: center;
-	position: relative;
 	text-align: center;
 	font-size: 126px;
 	position: relative;
@@ -22,7 +19,8 @@
 }
 
 .box-shadow {
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transition: box-shadow .7s;
 }
 
 .box-shadow:hover {
