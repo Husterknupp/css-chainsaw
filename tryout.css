@@ -1,4 +1,3 @@
-
 #flex-container {
 	display: flex;
 	flex-direction: row;
@@ -10,15 +9,22 @@
   height: 100%
 }
 
-#main {
+.world {
 	/*background-color: lightGreen;*/
 	flex: 0 0 50px;
 	align-self: center;
 	position: relative;
 	text-align: center;
 	font-size: 126px;
+	position: relative;
 }
 
-#pin {
-	
+.world__pin {
+	position: absolute; 
+	font-size: 21px; 
+}
+
+.world__pin--germany {
+	left: 49px; 
+	top: 11px;
 }
