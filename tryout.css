@@ -1,11 +1,25 @@
-#flex-container {
+* {
+	box-sizing: border-box;
+}
+
+.flex-container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-content: stretch;
-  align-items: flex-start;
-  height: 100%
+	align-items: flex-start;
+	/*height: 50%*/
+}
+
+.flex-container--vertical {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-content: stretch;
+	align-items: flex-start;
+	height: 100%
 }
 
 .world {
@@ -15,7 +29,7 @@
 	font-size: 126px;
 	position: relative;
 	border: solid #fed948 5px;
-  border-radius: 8px;
+	border-radius: 8px;
 }
 
 .box-shadow {
