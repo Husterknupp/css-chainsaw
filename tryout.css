@@ -49,3 +49,24 @@
 	left: 49px; 
 	top: 11px;
 }
+
+.border--gray {
+	border: solid #7f7f7fb3 2px; 
+	border-radius: 4px;
+}
+
+.input-panel {
+	width: 400px;
+}
+
+.input-panel > div {
+	padding: 10px 20px;
+}
+
+.input-panel__header {
+	font-family: 'Helvetica', sans-serif;
+}
+
+.input-panel__input {
+	width: 100%;
+}
