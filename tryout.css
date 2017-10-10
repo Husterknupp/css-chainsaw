@@ -50,6 +50,14 @@
 	top: 11px;
 }
 
+.world__center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* top/left only refer to upper left corner of elemet's bounding box.
+										 Shorthand of translateX(-50%) and translateY(-50%) */" 
+}
+
 .border--gray {
 	border: solid #7f7f7fb3 2px; 
 	border-radius: 4px;
@@ -69,4 +77,8 @@
 
 .input-panel__input {
 	width: 100%;
+}
+
+.hidden {
+	display: none;
 }

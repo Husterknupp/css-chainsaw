@@ -7,11 +7,13 @@
 
 <div class="flex-container--column">
 	<div class="flex-container--row" style="align-self: center;">
-	  <div class="world box-shadow">
+	  <div id="germany" class="world box-shadow">
 	    <span class="world__pin world__pin--germany">
 	  		📍
 	  	</span>
 	    🌍
+	    <img id="germany-flag" class="hidden world__center"
+		  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Coat_of_arms_of_Germany.svg/1200px-Coat_of_arms_of_Germany.svg.png" alt="Bundeswappen Deutschlands" width="50px">
 	  </div>
 	</div>
 	<div class="border--gray input-panel">
@@ -23,5 +25,19 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	const pin = document.querySelector('#germany');
+	pin.addEventListener('click', toggleFlag);
+
+	function toggleFlag(e) {
+		const img = document.querySelector('#germany-flag');
+		if (img.classList.contains('hidden')) {
+			img.classList.remove('hidden');
+		} else {
+			img.classList.add('hidden');
+		}
+	}
+</script>
 
 </body>
