@@ -16,7 +16,7 @@
 		  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Coat_of_arms_of_Germany.svg/1200px-Coat_of_arms_of_Germany.svg.png" 
 		  alt="Bundeswappen Deutschlands" 
 		  width="50px">
-		<div id="germany-flag-background" class="background--gray hidden"></div>
+		<div id="germany-flag-background"></div>
 	  </div>
 	</div>
 	<div class="border--gray input-panel">
@@ -38,10 +38,10 @@
 		const background = document.querySelector('#germany-flag-background');
 		if (img.classList.contains('hidden')) {
 			img.classList.remove('hidden');
-			background.classList.remove('hidden');
+			background.classList.add('background--gray');
 		} else {
 			img.classList.add('hidden');
-			background.classList.add('hidden');
+			background.classList.remove('background--gray');
 		}
 	}
 </script>

@@ -28,7 +28,7 @@
 	font-size: 126px;
 	position: relative;
 	border: solid #fed948 5px;
-	border-radius: 8px;
+	border-radius: 8px; /* todo use same radius as with input panel */
 }
 
 .box-shadow {
@@ -91,4 +91,9 @@
 	top: 0;
 	left: 0;
 	background: rgba(0, 0, 0, 0.5);
+}
+
+#germany-flag-background {
+	transition: background 2s;
+	/* todo class with background should be toggled to activate transition -- as oposed to hide/unhide the element*/
 }
