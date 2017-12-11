@@ -1,49 +1,269 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="tryout.css" />
+<script>
+	
+</script>
 </head>
 
 <body>
+<template>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    #slider {
+      max-width: 600px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    #overflow {
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    #slides .inner {
+      width: 400%;
+    }
+    
+    #slides .inner {
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -o-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+    
+      -webkit-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      -moz-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      -o-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      -ms-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    
+      -webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      -moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      -ms-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+      transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    }
+    
+    #slides img {
+      width: 25%;
+      float: left;
+    }
+    
+    #slide1:checked ~ #slides .inner {
+      margin-left: 0;
+    }
+    
+    #slide2:checked ~ #slides .inner {
+      margin-left: -100%;
+    }
+    
+    #slide3:checked ~ #slides .inner {
+      margin-left: -200%;
+    }
+    
+    #slide4:checked ~ #slides .inner {
+      margin-left: -300%;
+    }
+    
+    input[type="radio"] {
+      display: none;
+    }
+    
+    label {
+      background: #CCC;
+      display: inline-block;
+      cursor: pointer;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+    }
+    
+    #slide1:checked ~ label[for="slide1"],
+    #slide2:checked ~ label[for="slide2"],
+    #slide3:checked ~ label[for="slide3"],
+    #slide4:checked ~ label[for="slide4"] {
+      background: #333;
+    }
+  </style>
+  <div id="slider">
+    <input checked="" type="radio" name="slider" id="slide1" selected="false">
+    <input type="radio" name="slider" id="slide2" selected="false">
+    <input type="radio" name="slider" id="slide3" selected="false">
+    <input type="radio" name="slider" id="slide4" selected="false">
+    <div id="slides">
+      <div id="overflow">
+        <div class="inner">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/rock.jpg">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/grooves.jpg">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/arch.jpg">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/sunset.jpg">
+        </div> <!-- .inner -->
+      </div> <!-- #overflow -->
+    </div>
+    <label for="slide1"></label>
+    <label for="slide2"></label>
+    <label for="slide3"></label>
+    <label for="slide4"></label>
+  </div>
+</template>
 
-<div class="flex-container--column">
-	<div class="flex-container--row" style="align-self: center;">
-	  <div id="germany" class="world box-shadow">
-	    <span class="world__pin world__pin--germany">
-	  		📍
-	  	</span>
-	    🌍
-	    <img id="germany-flag" class="hidden world__center"
-		  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Coat_of_arms_of_Germany.svg/1200px-Coat_of_arms_of_Germany.svg.png" 
-		  alt="Bundeswappen Deutschlands" 
-		  width="50px">
-		<div id="germany-flag-background"></div>
-	  </div>
-	</div>
-	<div class="border--gray input-panel">
-		<div class="input-panel__header">
-			Title + Input + border
-		</div>
-		<div>
-			<input class="input-panel__input" type="text">
-		</div>
-	</div>
+<!-- <div class="container"></div> -->
+
+<script>
+  var host = document.querySelector('.container');
+  var root = host.createShadowRoot();
+  root.innerHTML = '<p>How <em>you</em> doin?</p>'
+</script>
+
+<!-- W/O CUSTOM ELEMENT -->
+<!-- <div class="img-slider"></div> -->
+
+<!-- <script>
+  // Add the template to the Shadow DOM
+  var tmpl = document.querySelector('template');
+  var host = document.querySelector('.img-slider');
+  var root = host.createShadowRoot();
+  root.appendChild(document.importNode(tmpl.content, true));
+</script> -->
+
+
+
+<!-- CUSTOM ELEMENT -->
+<script>
+  // Grab our template full of slider markup and styles
+  var tmpl = document.querySelector('template');
+
+  // Create a prototype for a new element that extends HTMLElement
+  var ImgSliderProto = Object.create(HTMLElement.prototype);
+
+  // Setup our Shadow DOM and clone the template
+  ImgSliderProto.createdCallback = function() {
+    var root = this.createShadowRoot();
+    root.appendChild(document.importNode(tmpl.content, true));
+  };
+
+  // Register our new element
+  var ImgSlider = document.registerElement('img-slider', {
+    prototype: ImgSliderProto
+  });
+</script>
+
+<!-- <img-slider></img-slider> -->
+
+
+
+
+<div id="one">
+  <div class="flex-container--column">
+  	<div class="flex-container--row-center" style="align-self: center;">
+  	  <div id="germany" class="world box-shadow">
+  	    <span class="world__pin world__pin--germany">
+  	  		📍
+  	  	</span>
+  	    🌍
+  	    <img id="germany-flag" class="hidden world__center"
+  		  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Coat_of_arms_of_Germany.svg/1200px-Coat_of_arms_of_Germany.svg.png" 
+  		  alt="Bundeswappen Deutschlands" 
+  		  width="50px">
+  		<div id="germany-flag-background"></div>
+  	  </div>
+  	</div>
+  	<div class="border--gray input-panel">
+  		<div class="input-panel__header">
+  			Title + Input + border
+  		</div>
+  		<div>
+  			<input class="input-panel__input" type="text">
+  		</div>
+  	</div>
+  </div>
+
+  <script type="text/javascript">
+  	const pin = document.querySelector('#germany');
+  	pin.addEventListener('click', toggleFlag);
+
+  	function toggleFlag(e) {
+  		const img = document.querySelector('#germany-flag');
+  		const background = document.querySelector('#germany-flag-background');
+  		if (img.classList.contains('hidden')) {
+  			img.classList.remove('hidden');
+  			background.classList.add('background--gray');
+  		} else {
+  			img.classList.add('hidden');
+  			background.classList.remove('background--gray');
+  		}
+  	}
+  </script>
 </div>
 
-<script type="text/javascript">
-	const pin = document.querySelector('#germany');
-	pin.addEventListener('click', toggleFlag);
+<div id="two" class="hidden">
+  <div style="font-size: 500%">
+    Ding Dong die Hex ist tot.
+  </div>
+</div>
 
-	function toggleFlag(e) {
-		const img = document.querySelector('#germany-flag');
-		const background = document.querySelector('#germany-flag-background');
-		if (img.classList.contains('hidden')) {
-			img.classList.remove('hidden');
-			background.classList.add('background--gray');
-		} else {
-			img.classList.add('hidden');
-			background.classList.remove('background--gray');
-		}
-	}
+<div id="arrows" class="flex-container--row-space-between" style="position: absolute; top: 40%;">
+  <div style="width: 100px; height: 200px; background: #0000008c; border-radius: 6px; flex: 0 1 auto">
+    <div class="arrow_box--left" style="top: 50%; left: 58px;"></div>
+  </div>
+  <div style="width: 100px; height: 200px; background: #0000008c; border-radius: 6px; flex: 0 1 auto">
+    <div class="arrow_box--right" style="top: 50%; right: 58px;"></div>
+  </div>
+</div>
+
+<script>
+  document.body.addEventListener('keydown', showArrowBadge);
+  document.body.addEventListener('keydown', hide);
+  
+  function showArrowBadge(e) {
+    if (e.which === 37) { // left
+      
+    } else if (e.which === 39) { // right
+      
+    }
+  }
+  function hide(e) {
+    if (e.which === 37) { // left
+      const section1 = document.querySelector('#one');
+      section1.classList.remove('hidden');
+
+      const section2 = document.querySelector('#two');
+      section2.classList.add('hidden');
+    } else if (e.which === 39) { // right
+      const section1 = document.querySelector('#one');
+      section1.classList.add('hidden');
+
+      const section2 = document.querySelector('#two');
+      section2.classList.remove('hidden');
+    }
+    // const img = document.querySelector('#germany-flag');
+    // const background = document.querySelector('#germany-flag-background');
+    // if (img.classList.contains('hidden')) {
+    //   img.classList.remove('hidden');
+    //   background.classList.add('background--gray');
+    // } else {
+    //   img.classList.add('hidden');
+    //   background.classList.remove('background--gray');
+    // }
+  }
 </script>
 
 </body>
+
+
+
+
+
+
+
+
+
+
+

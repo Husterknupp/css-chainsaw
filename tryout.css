@@ -1,14 +1,32 @@
+/* todo make arrow boxes NOT jump */
+/* todo make arrow boxes only appear on arrow key */
+/* todo consolidate arrow classes */
+
+body {
+	position: relative;
+}
+
 * {
 	box-sizing: border-box;
 }
 
-.flex-container--row {
+.flex-container--row-center {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
-	align-content: flex-start;
 	align-items: flex-start;
+	align-content: flex-start;
+	width: 100%;
+}
+
+.flex-container--row-space-between {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	align-content: flex-start;
 	width: 100%;
 }
 
@@ -19,7 +37,7 @@
 	justify-content: space-around;
 	align-content: stretch;
 	align-items: flex-start;
-	height: 100%
+	height: 100vh
 }
 
 .world {
@@ -96,4 +114,60 @@
 #germany-flag-background {
 	transition: background 2s;
 	/* todo class with background should be toggled to activate transition -- as oposed to hide/unhide the element*/
+}
+
+.arrow_box--left {
+	position: relative;
+	background: #d5d5d1;
+}
+.arrow_box--left:after, .arrow_box--left:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box--left:after {
+	border-color: rgba(213, 213, 209, 0);
+	border-right-color: #d5d5d1;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box--left:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: #c2e1f5;
+	border-width: 31px;
+	margin-top: -31px;
+}
+
+.arrow_box--right {
+	position: relative;
+	background: #d5d5d1;
+}
+.arrow_box--right:after, .arrow_box--right:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box--right:after {
+	border-color: rgba(213, 213, 209, 0);
+	border-left-color: #d5d5d1;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box--right:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-left-color: #c2e1f5;
+	border-width: 31px;
+	margin-top: -31px;
 }
