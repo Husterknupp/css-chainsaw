@@ -1,6 +1,5 @@
-/* todo make arrow boxes NOT jump */
-/* todo make arrow boxes only appear on arrow key */
-/* todo consolidate arrow classes */
+/* TODO make arrow boxes only appear on arrow key */
+/* TODO consolidate arrow classes */
 
 body {
 	position: relative;
@@ -37,7 +36,7 @@ body {
 	justify-content: space-around;
 	align-content: stretch;
 	align-items: flex-start;
-	height: 100vh
+	height: 100%
 }
 
 .world {
