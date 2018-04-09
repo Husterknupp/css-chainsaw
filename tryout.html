@@ -69,12 +69,14 @@
 		ARROWS
 ------------------------->
 
+<!-- TODO make arrow boxes click-able -->
+
 <div id="arrows" class="flex-container--row-space-between" style="position: absolute; top: 40%;">
-  <div style="width: 100px; height: 200px; background: #0000008c; border-radius: 6px; flex: 0 1 auto">
-    <div class="arrow_box--left" style="top: 50%; left: 58px;"></div>
+  <div class="arrow_box" style="flex: 0 1 auto">
+    <div class="arrow--left" style="top: 50%; left: 58px;"></div>
   </div>
-  <div style="width: 100px; height: 200px; background: #0000008c; border-radius: 6px; flex: 0 1 auto">
-    <div class="arrow_box--right" style="top: 50%; right: 58px;"></div>
+  <div class="arrow_box" style="flex: 0 1 auto">
+    <div class="arrow--right" style="top: 50%; right: 58px;"></div>
   </div>
 </div>
 
@@ -103,15 +105,6 @@
       const section2 = document.querySelector('#two');
       section2.classList.remove('hidden');
     }
-    // const img = document.querySelector('#germany-flag');
-    // const background = document.querySelector('#germany-flag-background');
-    // if (img.classList.contains('hidden')) {
-    //   img.classList.remove('hidden');
-    //   background.classList.add('background--gray');
-    // } else {
-    //   img.classList.add('hidden');
-    //   background.classList.remove('background--gray');
-    // }
   }
 </script>
 

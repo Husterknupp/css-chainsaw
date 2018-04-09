@@ -115,11 +115,18 @@ body {
 	/* todo class with background should be toggled to activate transition -- as oposed to hide/unhide the element*/
 }
 
-.arrow_box--left {
+.arrow_box {
+	width: 100px;
+	height: 200px;
+	background: #0000008c;
+	border-radius: 6px;
+}
+
+.arrow--left {
 	position: relative;
 	background: #d5d5d1;
 }
-.arrow_box--left:after, .arrow_box--left:before {
+.arrow--left:after, .arrow--left:before {
 	right: 100%;
 	top: 50%;
 	border: solid transparent;
@@ -130,24 +137,24 @@ body {
 	pointer-events: none;
 }
 
-.arrow_box--left:after {
+.arrow--left:after {
 	border-color: rgba(213, 213, 209, 0);
 	border-right-color: #d5d5d1;
 	border-width: 30px;
 	margin-top: -30px;
 }
-.arrow_box--left:before {
+.arrow--left:before {
 	border-color: rgba(194, 225, 245, 0);
 	border-right-color: #c2e1f5;
 	border-width: 31px;
 	margin-top: -31px;
 }
 
-.arrow_box--right {
+.arrow--right {
 	position: relative;
 	background: #d5d5d1;
 }
-.arrow_box--right:after, .arrow_box--right:before {
+.arrow--right:after, .arrow--right:before {
 	left: 100%;
 	top: 50%;
 	border: solid transparent;
@@ -158,13 +165,13 @@ body {
 	pointer-events: none;
 }
 
-.arrow_box--right:after {
+.arrow--right:after {
 	border-color: rgba(213, 213, 209, 0);
 	border-left-color: #d5d5d1;
 	border-width: 30px;
 	margin-top: -30px;
 }
-.arrow_box--right:before {
+.arrow--right:before {
 	border-color: rgba(194, 225, 245, 0);
 	border-left-color: #c2e1f5;
 	border-width: 31px;
