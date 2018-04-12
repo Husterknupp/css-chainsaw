@@ -1,9 +1,8 @@
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="tryout.css" />
-<script>
-	
-</script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="tryout.css"/>
+
+    <!-- TODO make separate 'pages' one for flex fun, the flag and the input box respectively -->
 </head>
 
 <body>
@@ -13,46 +12,46 @@
 ------------------------->
 
 <div id="one">
-  <div class="flex-container--column">
-  	<div class="flex-container--row-center" style="align-self: center;">
-  	  <div id="germany" class="world box-shadow">
-  	    <span class="world__pin world__pin--germany">
-  	  		📍
-  	  	</span>
-  	    🌍
-  	    <img id="germany-flag" class="hidden world__center"
-  		  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Coat_of_arms_of_Germany.svg/1200px-Coat_of_arms_of_Germany.svg.png" 
-  		  alt="Bundeswappen Deutschlands" 
-  		  width="50px">
-  		<div id="germany-flag-background"></div>
-  	  </div>
-  	</div>
-  	<div class="border--gray input-panel">
-  		<div class="input-panel__header">
-  			Title + Input + border
-  		</div>
-  		<div>
-  			<input class="input-panel__input" type="text">
-  		</div>
-  	</div>
-  </div>
+    <div class="flex-container--column">
+        <div class="flex-container--row-center" style="align-self: center;">
+            <div id="germany" class="world box-shadow">
+                <span class="world__pin world__pin--germany">
+                    📍
+                </span>
+                🌍
+                <img id="germany-flag" class="hidden world__center"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Coat_of_arms_of_Germany.svg/1200px-Coat_of_arms_of_Germany.svg.png"
+                     alt="Bundeswappen Deutschlands"
+                     width="50px">
+                <div id="germany-flag-background"></div>
+            </div>
+        </div>
+        <div class="border--gray input-panel">
+            <div class="input-panel__header">
+                Title + Input + border
+            </div>
+            <div>
+                <input class="input-panel__input" type="text">
+            </div>
+        </div>
+    </div>
 
-  <script type="text/javascript">
-  	const pin = document.querySelector('#germany');
-  	pin.addEventListener('click', toggleFlag);
+    <script type="text/javascript">
+        const pin = document.querySelector('#germany');
+        pin.addEventListener('click', toggleFlag);
 
-  	function toggleFlag(e) {
-  		const img = document.querySelector('#germany-flag');
-  		const background = document.querySelector('#germany-flag-background');
-  		if (img.classList.contains('hidden')) {
-  			img.classList.remove('hidden');
-  			background.classList.add('background--gray');
-  		} else {
-  			img.classList.add('hidden');
-  			background.classList.remove('background--gray');
-  		}
-  	}
-  </script>
+        function toggleFlag(e) {
+            const img = document.querySelector('#germany-flag');
+            const background = document.querySelector('#germany-flag-background');
+            if (img.classList.contains('hidden')) {
+                img.classList.remove('hidden');
+                background.classList.add('background--gray');
+            } else {
+                img.classList.add('hidden');
+                background.classList.remove('background--gray');
+            }
+        }
+    </script>
 </div>
 
 <!------------------------
@@ -60,9 +59,9 @@
 ------------------------->
 
 <div id="two" class="hidden">
-  <div style="font-size: 500%">
-    Ding Dong die Hex ist tot.
-  </div>
+    <div style="font-size: 500%">
+        Ding Dong die Hex ist tot.
+    </div>
 </div>
 
 <!------------------------
@@ -70,42 +69,44 @@
 ------------------------->
 
 <!-- TODO make arrow boxes click-able -->
+<!-- TODO sticky arrows (no matter scrolling) -->
 
 <div id="arrows" class="flex-container--row-space-between" style="position: absolute; top: 40%;">
-  <div class="arrow_box" style="flex: 0 1 auto">
-    <div class="arrow--left" style="top: 50%; left: 58px;"></div>
-  </div>
-  <div class="arrow_box" style="flex: 0 1 auto">
-    <div class="arrow--right" style="top: 50%; right: 58px;"></div>
-  </div>
+    <div class="arrow_box" style="flex: 0 1 auto">
+        <div class="arrow--left" style="top: 50%; left: 58px;"></div>
+    </div>
+    <div class="arrow_box" style="flex: 0 1 auto">
+        <div class="arrow--right" style="top: 50%; right: 58px;"></div>
+    </div>
 </div>
 
 <script>
-  document.body.addEventListener('keydown', showArrowBadge);
-  document.body.addEventListener('keydown', hide);
-  
-  function showArrowBadge(e) {
-    if (e.which === 37) { // left
-      
-    } else if (e.which === 39) { // right
-      
-    }
-  }
-  function hide(e) {
-    if (e.which === 37) { // left
-      const section1 = document.querySelector('#one');
-      section1.classList.remove('hidden');
+    document.body.addEventListener('keydown', showArrowBadge);
+    document.body.addEventListener('keydown', hide);
 
-      const section2 = document.querySelector('#two');
-      section2.classList.add('hidden');
-    } else if (e.which === 39) { // right
-      const section1 = document.querySelector('#one');
-      section1.classList.add('hidden');
+    function showArrowBadge(e) {
+        if (e.which === 37) { // left
 
-      const section2 = document.querySelector('#two');
-      section2.classList.remove('hidden');
+        } else if (e.which === 39) { // right
+
+        }
     }
-  }
+
+    function hide(e) {
+        if (e.which === 37) { // left
+            const section1 = document.querySelector('#one');
+            section1.classList.remove('hidden');
+
+            const section2 = document.querySelector('#two');
+            section2.classList.add('hidden');
+        } else if (e.which === 39) { // right
+            const section1 = document.querySelector('#one');
+            section1.classList.add('hidden');
+
+            const section2 = document.querySelector('#two');
+            section2.classList.remove('hidden');
+        }
+    }
 </script>
 
 </body>
