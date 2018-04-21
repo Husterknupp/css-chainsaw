@@ -11,7 +11,7 @@
 		SECTION 1
 ------------------------->
 
-<div id="one">
+<div id="chnsw_1">
     <div class="flex-container--column">
         <div class="flex-container--row-center" style="align-self: center;">
             <div id="germany" class="world box-shadow">
@@ -58,7 +58,7 @@
 		SECTION 2
 ------------------------->
 
-<div id="two" class="hidden" style="width: 360px; margin: auto;">
+<div id="chnsw_2" class="hidden" style="width: 360px; margin: auto;">
     <h1>
         Ding Dong die Hex ist tot.
     </h1>
@@ -109,6 +109,16 @@
 </div>
 
 <!------------------------
+		SECTION 3
+------------------------->
+
+<div id="chnsw_3" class="hidden" style="width: 360px; margin: auto;">
+    <h1>
+        Let it snow let it snow let it snow
+    </h1>
+</div>
+
+<!------------------------
 		ARROWS
 ------------------------->
 
@@ -135,21 +145,71 @@
         }
     }
 
+    let activeSectionNo = 1;
+    const sectionsCount = 3;
     function hide(e) {
+        let risingSection;
+        let fadingSection;
         if (e.which === 37) { // left
-            const section1 = document.querySelector('#one');
-            section1.classList.remove('hidden');
-
-            const section2 = document.querySelector('#two');
-            section2.classList.add('hidden');
+            switch (activeSectionNo) {
+                // todo un-duplicate code!
+                case 1:
+                    risingSection = document.querySelector('#chnsw_' + sectionsCount);
+                    activateSection(risingSection);
+                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
+                    hideSection(fadingSection);
+                    activeSectionNo = 3;
+                    break;
+                case 2:
+                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo - 1));
+                    activateSection(risingSection);
+                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
+                    hideSection(fadingSection);
+                    activeSectionNo--;
+                    break;
+                case 3:
+                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo - 1));
+                    activateSection(risingSection);
+                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
+                    hideSection(fadingSection);
+                    activeSectionNo--;
+                    break;
+            }
         } else if (e.which === 39) { // right
-            const section1 = document.querySelector('#one');
-            section1.classList.add('hidden');
-
-            const section2 = document.querySelector('#two');
-            section2.classList.remove('hidden');
+            switch (activeSectionNo) {
+                case 1:
+                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo + 1));
+                    activateSection(risingSection);
+                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
+                    hideSection(fadingSection);
+                    activeSectionNo++;
+                    break;
+                case 2:
+                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo + 1));
+                    activateSection(risingSection);
+                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
+                    hideSection(fadingSection);
+                    activeSectionNo++;
+                    break;
+                case 3:
+                    risingSection = document.querySelector('#chnsw_' + 1);
+                    activateSection(risingSection);
+                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
+                    hideSection(fadingSection);
+                    activeSectionNo = 1;
+                    break;
+            }
         }
     }
+
+    function activateSection(section) {
+        section.classList.remove('hidden');
+    }
+
+    function hideSection(section) {
+        section.classList.add('hidden');
+    }
+
 </script>
 
 </body>
