@@ -177,3 +177,36 @@ body {
 	border-width: 31px;
 	margin-top: -31px;
 }
+
+.headline--centered {
+    width: 360px; margin: auto;
+}
+
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.full-screen__snow-flake {
+    position: absolute;
+    animation-name: fall-down;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.credits {
+    position: fixed;
+    top: 97vh;
+    text-align: right;
+    width: 100vw;
+}
+
+@keyframes fall-down {
+    100% {
+        transform: translate(0, 120vh); /* 120 because snow-flake starts at -xy .. somehow then the vh is not as expected */
+    }
+}
