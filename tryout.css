@@ -190,7 +190,7 @@ body {
     height: 100vh;
 }
 
-.full-screen__snow-flake {
+.full-screen__snow-flake-animated {
     position: absolute;
     animation-name: fall-down;
     animation-duration: 5s;
