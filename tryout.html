@@ -178,66 +178,37 @@
     const sectionsCount = 3;
 
     function hide(e) {
-        let risingSection;
-        let fadingSection;
         if (e.which === 37) { // left
-            switch (activeSectionNo) {
-                // todo un-duplicate code!
-                case 1:
-                    risingSection = document.querySelector('#chnsw_' + sectionsCount);
-                    activateSection(risingSection);
-                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
-                    hideSection(fadingSection);
-                    activeSectionNo = 3;
-                    break;
-                case 2:
-                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo - 1));
-                    activateSection(risingSection);
-                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
-                    hideSection(fadingSection);
-                    activeSectionNo--;
-                    break;
-                case 3:
-                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo - 1));
-                    activateSection(risingSection);
-                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
-                    hideSection(fadingSection);
-                    activeSectionNo--;
-                    break;
+            if (activeSectionNo === 1) {
+                activateSectionWithNo(sectionsCount);
+                hideActiveSection();
+                activeSectionNo = sectionsCount;
+            } else {
+                activateSectionWithNo(activeSectionNo - 1);
+                hideActiveSection();
+                activeSectionNo--;
             }
         } else if (e.which === 39) { // right
-            switch (activeSectionNo) {
-                case 1:
-                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo + 1));
-                    activateSection(risingSection);
-                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
-                    hideSection(fadingSection);
-                    activeSectionNo++;
-                    break;
-                case 2:
-                    risingSection = document.querySelector('#chnsw_' + (activeSectionNo + 1));
-                    activateSection(risingSection);
-                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
-                    hideSection(fadingSection);
-                    activeSectionNo++;
-                    break;
-                case 3:
-                    risingSection = document.querySelector('#chnsw_' + 1);
-                    activateSection(risingSection);
-                    fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
-                    hideSection(fadingSection);
-                    activeSectionNo = 1;
-                    break;
+            if (activeSectionNo === sectionsCount) {
+                activateSectionWithNo(1);
+                hideActiveSection();
+                activeSectionNo = 1;
+            } else {
+                activateSectionWithNo(activeSectionNo + 1);
+                hideActiveSection();
+                activeSectionNo++;
             }
         }
     }
 
-    function activateSection(section) {
-        section.classList.remove('hidden');
+    function activateSectionWithNo(sectionNo) {
+        let risingSection = document.querySelector('#chnsw_' + sectionNo);
+        risingSection.classList.remove('hidden');
     }
 
-    function hideSection(section) {
-        section.classList.add('hidden');
+    function hideActiveSection() {
+        let fadingSection = document.querySelector('#chnsw_' + activeSectionNo);
+        fadingSection.classList.add('hidden');
     }
 
 </script>
