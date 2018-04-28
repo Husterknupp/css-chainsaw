@@ -173,19 +173,19 @@
 		ARROWS
 *************************
 -->
-
-<!-- TODO make arrow boxes click-able -->
-
 <div id="arrows" class="flex-container--row-space-between" style="position: fixed; top: 40%;">
-    <div class="arrow_box" style="flex: 0 1 auto">
+    <div onclick="showLeft()" class="arrow_box" style="flex: 0 1 auto">
         <div class="arrow--left" style="top: 50%; left: 58px;"></div>
     </div>
-    <div class="arrow_box" style="flex: 0 1 auto">
+    <div onclick="showRight()" class="arrow_box" style="flex: 0 1 auto">
         <div class="arrow--right" style="top: 50%; right: 58px;"></div>
     </div>
 </div>
 
 <script>
+    let activeSectionNo = 3;
+    const SECTIONS_COUNT = 3;
+
     const activateSectionWithNo = (sectionNo) => {
         let risingSection = document.querySelector('#chnsw_' + sectionNo);
         risingSection.classList.remove('hidden');
@@ -196,34 +196,44 @@
         fadingSection.classList.add('hidden');
     };
 
-    let activeSectionNo = 3;
-    const sectionsCount = 3;
-
-    const hide = (e) => {
-        if (e.which === 37) { // left
-            if (activeSectionNo === 1) {
-                activateSectionWithNo(sectionsCount);
-                hideActiveSection();
-                activeSectionNo = sectionsCount;
-            } else {
-                activateSectionWithNo(activeSectionNo - 1);
-                hideActiveSection();
-                activeSectionNo--;
-            }
-        } else if (e.which === 39) { // right
-            if (activeSectionNo === sectionsCount) {
-                activateSectionWithNo(1);
-                hideActiveSection();
-                activeSectionNo = 1;
-            } else {
-                activateSectionWithNo(activeSectionNo + 1);
-                hideActiveSection();
-                activeSectionNo++;
-            }
+    const showLeft = () => {
+        if (activeSectionNo === 1) {
+            activateSectionWithNo(SECTIONS_COUNT);
+            hideActiveSection();
+            activeSectionNo = SECTIONS_COUNT;
+        } else {
+            activateSectionWithNo(activeSectionNo - 1);
+            hideActiveSection();
+            activeSectionNo--;
         }
     };
 
-    document.body.addEventListener('keydown', hide);
+    const showRight = () => {
+        if (activeSectionNo === SECTIONS_COUNT) {
+            activateSectionWithNo(1);
+            hideActiveSection();
+            activeSectionNo = 1;
+        } else {
+            activateSectionWithNo(activeSectionNo + 1);
+            hideActiveSection();
+            activeSectionNo++;
+        }
+    };
+
+    const showPreviousSection = ({which: which = null}) => {
+        if (which === 37) { // left
+            showLeft();
+        }
+    };
+
+    const showNextSection = ({which: which = null}) => {
+        if (which === 39) { // right
+            showRight()
+        }
+    };
+
+    document.body.addEventListener('keydown', showPreviousSection);
+    document.body.addEventListener('keydown', showNextSection);
 </script>
 
 </body>
