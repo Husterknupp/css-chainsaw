@@ -2,4 +2,4 @@
 
 Improve my css skills. Small problems and their solutions.
 
-Just checkout the repo and open the `index.html` in your browser.
+Just check it out here: https://husterknupp.github.io/css-chainsaw/
