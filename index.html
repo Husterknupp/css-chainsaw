@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
 
     <!-- TODO make separate sections. One for flex fun, the flag and the input box respectively -->
-    <!-- TODO width behavior is strange: why is arrow box outside of the viewport? -->
+    <!-- TODO why is snow flake not falling to page bottom when top negative value? -->
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 *************************
 -->
 
-<div id="chnsw_1" class="hidden">
+<div id="chnsw_1">
     <div class="flex-container--column">
         <div class="flex-container--row-center" style="align-self: center;">
             <div id="germany" class="world box-shadow">
@@ -119,7 +119,7 @@
 *************************
 -->
 
-<div id="chnsw_3">
+<div id="chnsw_3" class="hidden">
     <div class="headline--centered">
         <h1>
             Let it snow let it snow let it snow
@@ -173,7 +173,8 @@
 		ARROWS
 *************************
 -->
-<div id="arrows" class="flex-container--row-space-between" style="position: fixed; top: 40%;">
+<div id="arrows" class="flex-container--row-space-between" style="position: fixed; top: 40%;
+  padding-right: 16px;"> <!-- hack necessary due to position fixed and width 100% -->
     <div onclick="showLeft()" class="arrow_box" style="flex: 0 1 auto">
         <div class="arrow--left" style="top: 50%; left: 58px;"></div>
     </div>
@@ -183,7 +184,7 @@
 </div>
 
 <script>
-    let activeSectionNo = 3;
+    let activeSectionNo = 1;
     const SECTIONS_COUNT = 3;
 
     const activateSectionWithNo = (sectionNo) => {
