@@ -115,6 +115,13 @@ body {
 	/* todo class with background should be toggled to activate transition -- as oposed to hide/unhide the element*/
 }
 
+.arrows-container--full-width {
+	left: 0; /* necessary because position:fixed width is relative to body */
+	padding: 8px;
+	position: fixed;
+	top: 40%;
+}
+
 .arrow_box {
 	width: 100px;
 	height: 200px;
