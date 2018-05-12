@@ -4,6 +4,10 @@
 
     <!-- TODO make separate sections. One for flex fun, the flag and the input box respectively -->
     <!-- TODO why is snow flake not falling to page bottom when top negative value? -->
+    <!-- TODO fix strange snow flake falling behavior -->
+    <!-- TODO make arrow boxes only appear on arrow key-->
+    <!-- TODO consolidate arrow classes-->
+
 </head>
 
 <body>
@@ -40,7 +44,7 @@
     </div>
 
     <script>
-        const toggleFlag = (e) => {
+        const toggleFlag = e => {
             const img = document.querySelector('#germany-flag');
             const background = document.querySelector('#germany-flag-background');
             if (img.classList.contains('hidden')) {
@@ -141,7 +145,7 @@
         'data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI1NnB4IiBoZWlnaHQ9IjI1NnB4IiB2aWV3Qm94PSIwIDAgMzEuNTA2IDMxLjUwNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzEuNTA2IDMxLjUwNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxwYXRoIGQ9Ik0zMC43NTMsMTUuMDAxaC0zLjI4OWwxLjgwMS0xLjc5OWMwLjI5My0wLjI5MiwwLjI5My0wLjc2OCwwLTEuMDYxYy0wLjI5My0wLjI5Mi0wLjc2OC0wLjI5My0xLjA2MiwwTDI1LjM0MywxNWgtNS4zODEgICBsLTEuMTg2LTEuMTg1aDMuNDcyYzAuNDE0LDAsMC43NS0wLjMzNiwwLjc1LTAuNzVzLTAuMzM2LTAuNzUtMC43NS0wLjc1aC0xLjk5OWwzLjczMi0zLjczNGMwLjI5My0wLjI5MywwLjI5My0wLjc2OCwwLTEuMDYxICAgcy0wLjc3LTAuMjkzLTEuMDYyLDBsLTMuNzMyLDMuNzM0di0yYzAtMC40MTQtMC4zMzYtMC43NS0wLjc1LTAuNzVzLTAuNzUsMC4zMzYtMC43NSwwLjc1djMuNDdsLTEuMTg2LTEuMTg1di01LjM4bDIuODU5LTIuODYgICBjMC4yOTMtMC4yOTMsMC4yOTMtMC43NjgsMC0xLjA2MWMtMC4yOTMtMC4yOTMtMC43NjktMC4yOTMtMS4wNjIsMGwtMS44LDEuOFYwLjc1YzAtMC40MTQtMC4zMzYtMC43NS0wLjc1LTAuNzUgICBzLTAuNzUsMC4zMzYtMC43NSwwLjc1djMuMjg5TDEzLjIsMi4yNGMtMC4yOTMtMC4yOTMtMC43NjgtMC4yOTMtMS4wNjEsMGMtMC4yOTMsMC4yOTItMC4yOTMsMC43NjgsMCwxLjA2MWwyLjg1OCwyLjg2djUuMzggICBsLTEuMDg0LDEuMDg0VjkuNDk5YzAtMC40MTQtMC4zMzYtMC43NS0wLjc1LTAuNzVzLTAuNzUsMC4zMzYtMC43NSwwLjc1djEuODU4TDguNTc5LDcuNTIyYy0wLjI5My0wLjI5My0wLjc2OS0wLjI5My0xLjA2MiwwICAgYy0wLjI5MywwLjI5Mi0wLjI5MywwLjc2OCwwLDEuMDYxbDMuODM0LDMuODM0SDkuNDk1Yy0wLjQxNCwwLTAuNzUsMC4zMzYtMC43NSwwLjc1czAuMzM2LDAuNzUsMC43NSwwLjc1aDMuMTI3bC0xLjA4NCwxLjA4NCAgIEg2LjE2M2wtMi44Ni0yLjg2Yy0wLjI5My0wLjI5My0wLjc2OC0wLjI5My0xLjA2MiwwYy0wLjI5MywwLjI5My0wLjI5MywwLjc2OCwwLDEuMDYxbDEuODAxLDEuOEgwLjc1MyAgIGMtMC40MTQsMC0wLjc1LDAuMzM2LTAuNzUsMC43NXMwLjMzNiwwLjc1LDAuNzUsMC43NWgzLjI4OWwtMS44MDEsMS43OTljLTAuMjkzLDAuMjkzLTAuMjkzLDAuNzcsMCwxLjA2MiAgIGMwLjE0NiwwLjE0NiwwLjMzOSwwLjIyLDAuNTMxLDAuMjJjMC4xOSwwLDAuMzgzLTAuMDcyLDAuNTI5LTAuMjJsMi44Ni0yLjg1OGg1LjM4MWwxLjE4NSwxLjE4NUg5LjI1NiAgIGMtMC40MTQsMC0wLjc1LDAuMzM2LTAuNzUsMC43NXMwLjMzNiwwLjc1LDAuNzUsMC43NWgxLjk5OWwtMy43MzEsMy43MzNjLTAuMjkzLDAuMjkzLTAuMjkzLDAuNzY5LDAsMS4wNjIgICBjMC4xNDYsMC4xNDYsMC4zMzgsMC4yMjEsMC41MjksMC4yMjFjMC4xOTIsMCwwLjM4NS0wLjA3NCwwLjUzLTAuMjIxbDMuNzMzLTMuNzM0djIuMDAyYzAsMC40MTQsMC4zMzYsMC43NSwwLjc1LDAuNzUgICBzMC43NS0wLjMzNiwwLjc1LTAuNzV2LTMuNDczbDEuMTg1LDEuMTg2djUuMzgxbC0yLjg2LDIuODU5Yy0wLjI5MywwLjI5My0wLjI5MywwLjc2OCwwLDEuMDYyYzAuMjkzLDAuMjkzLDAuNzY5LDAuMjkzLDEuMDYyLDAgICBsMS44LTEuODAxdjMuMjg5YzAsMC40MTQsMC4zMzYsMC43NSwwLjc1LDAuNzVzMC43NS0wLjMzNiwwLjc1LTAuNzV2LTMuMjg5bDEuNzk5LDEuNzk5YzAuMTQ2LDAuMTQ2LDAuMzM4LDAuMjIxLDAuNTMsMC4yMjEgICBzMC4zODQtMC4wNzMsMC41My0wLjIyMWMwLjI5My0wLjI5MSwwLjI5My0wLjc2OCwwLTEuMDYxbC0yLjg1OS0yLjg2NHYtNS4zNzlsMS4wODQtMS4wODR2My4xMjVjMCwwLjQxNCwwLjMzNiwwLjc1LDAuNzUsMC43NSAgIHMwLjc1LTAuMzM2LDAuNzUtMC43NXYtMS44NTZsMy44MzQsMy44MzRjMC4xNDYsMC4xNDYsMC4zMzgsMC4yMjEsMC41MjksMC4yMjFjMC4xOTMsMCwwLjM4NS0wLjA3MiwwLjUzMS0wLjIyMSAgIGMwLjI5My0wLjI5MSwwLjI5My0wLjc2OSwwLTEuMDYybC0zLjgzNC0zLjgzNGgxLjg1NWMwLjQxNCwwLDAuNzUtMC4zMzYsMC43NS0wLjc1cy0wLjMzNi0wLjc1LTAuNzUtMC43NWgtMy4xMjdsMS4wODQtMS4wODQgICBoNS4zODFsMi44NTksMi44NmMwLjE0NiwwLjE0NiwwLjMzOSwwLjIyLDAuNTI5LDAuMjJjMC4xOTIsMCwwLjM4NS0wLjA3MiwwLjUzLTAuMjJjMC4yOTMtMC4yOTMsMC4yOTMtMC43NywwLTEuMDYybC0xLjgtMS43OTkgICBoMy4yOTNjMC40MTQsMCwwLjc1LTAuMzM2LDAuNzUtMC43NVMzMS4xNjcsMTUuMDAxLDMwLjc1MywxNS4wMDF6IE0xNy44NDEsMTYuNTAxbC0xLjMzOCwxLjMzOGwtMC43NSwwLjc1bC0wLjc1LTAuNzUgICBsLTEuMzM4LTEuMzM4bC0wLjc1LTAuNzVsMC43NS0wLjc1bDEuMzM4LTEuMzM4bDAuNzUtMC43NWwwLjc1LDAuNzVsMS4zMzgsMS4zMzhsMC43NSwwLjc1TDE3Ljg0MSwxNi41MDF6IiBmaWxsPSIjRkZGRkZGIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=='
     ];
 
-    const createSnowFlakeWithRandomOffsetAndRandomSize = (imageSrc) => { // to have random src in the timeout callback
+    const createSnowFlakeWithRandomOffsetAndRandomSize = imageSrc => { // to have random src in the timeout callback
         const snowFlake = document.createElement('img');
         const heightAndWidth = 15 + Math.random() * 55;
         snowFlake.style.width = heightAndWidth;
@@ -186,7 +190,7 @@
     let activeSectionNo = 1;
     const SECTIONS_COUNT = 3;
 
-    const activateSectionWithNo = (sectionNo) => {
+    const activateSectionWithNo = sectionNo => {
         let risingSection = document.querySelector('#chnsw_' + sectionNo);
         risingSection.classList.remove('hidden');
     };

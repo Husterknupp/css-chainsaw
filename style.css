@@ -1,6 +1,3 @@
-/* TODO make arrow boxes only appear on arrow key */
-/* TODO consolidate arrow classes */
-
 body {
 	position: relative;
 }
@@ -45,7 +42,7 @@ body {
 	font-size: 126px;
 	position: relative;
 	border: solid #fed948 5px;
-	border-radius: 8px; /* todo use same radius as with input panel */
+	border-radius: 8px;
 }
 
 .box-shadow {
